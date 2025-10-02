@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXO - Trueque con Confianza</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluye los iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Carga la fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/explorar.css">
+    <style>
+/*
+
+----antiguedades
+reliquias historicas
+joyeria antigua
+
+----arte y coleccionables
+comics y figuras de accion
+arte
+autografos
+
+----vintage
+joyeria valiosa
+ropa
+
+
+
+
+*/
+
+
+
+
+
+
+        :root {
+            --dark-brown: #2e261f;
+            --gold: #d4af37;
+            --light-gold: #f5e4c0;
+            --off-white: #e0e0e0;
+            --card-brown: #3b322a;
+        }
+
+
+        /*-----------------------------------------------Configuraciones de mi proyecto--------------------------------------------------*/
+
+        .text-gold {
+            color: var(--gold) !important;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-brown);
+            color: var(--off-white);
+            overflow-x: hidden;
+            padding-top: 85px; /* ajusta al alto real de tu navbar */
+        }
+
+
+        
+       
+
+        /*-----------------------------------------------CUERPO--------------------------------------------------*/
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            url('img/FondoHome.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            min-height: 420px; /* ajusta a lo que necesites */
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--gold);
+            border: 1px solid var(--gold);
+            color: var(--dark-brown);
+            font-weight: 600;
+            transition: background-color 0.2s, border-color 0.2s;
+            border-radius: 999px; /* Mantiene la estética de los botones */
+        }
+        .btn-primary-custom:hover {
+            background-color: var(--light-gold);
+            border-color: var(--light-gold);
+        }
+
+
+        .sidebar-panel {
+            background-color: var(--card-brown);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+            /* 🔥 Ajuste de altura fija */
+            height: 415px; /* Cámbialo según el alto que quieras */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribuye contenido sin deformar */
+        }
+
+        .card-item {
+            background-color: var(--card-brown);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+            /* 🔥 Ajuste de altura fija */
+            height: 415px; /* Cámbialo según el alto que quieras */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribuye contenido sin deformar */
+        }
+        
+        
+        .card-item:hover, .sidebar-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .category-item {
+            background-color: var(--dark-brown);
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+        
+        .category-item:hover {
+            background-color: var(--gold);
+        }
+
+        .btn-gold {
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+        }
+
+        .btn-gold:hover {
+            background-color: #b8962c;
+            color: #fff;
+        }
+
+        /* Ajusta el borde a tu gusto */
+        .custom-btn {
+            border-radius: 20px; /* Cámbialo: 0px = recto, 8px = suave, 50px = muy redondo */
+            padding: 10px 20px; /* Puedes ajustar también el tamaño del botón */
+        }
+
+        .input-search {
+        background-color: #1a1a1a; /* fondo oscuro */
+        color: #fff; /* texto blanco */
+        border: 1px solid var(--gold); /* borde dorado */
+        border-radius: 999px 0 0 999px; /* redondeado izquierda */
+        padding: 0.75rem 1rem;
+        }
+
+        .input-search::placeholder {
+        color: #aaa; /* placeholder más suave */
+        }
+
+        .input-group-text {
+        background-color: #1a1a1a; 
+        border: 1px solid var(--gold);
+        border-right: none;
+        border-radius: 999px 0 0 999px;
+        color: var(--gold); /* ícono dorado */
+        }
+
+        .btn-primary-custom {
+        background-color: var(--gold);
+        border: 1px solid var(--gold);
+        color: #1a1a1a; /* texto oscuro */
+        font-weight: 600;
+        border-radius: 0 999px 999px 0; /* redondeado derecha */
+        padding: 0.75rem 1.5rem;
+        }
+
+        .btn-primary-custom:hover {
+        background-color: var(--light-gold);
+        border-color: var(--light-gold);
+        }
+
+        .form-check-input:checked {
+            background-color: var(--gold);
+            border-color: var(--gold);
+        }
+        .divider {
+            height: 1px;
+            background-color: var(--gold);
+        }
+        
+
+        
+
+    </style>
+</head>
+<body class="bg-pattern">
+
+    <!-- Header -->
+    <!-- Navegación -->
+        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+            <div class="container-fluid px-5">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                <img src="img/LogoNexo-Photoroom.png" alt="NEXO Logo">
+                </a>
+
+                <!-- Botón responsive -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"> <strong><a class="nav-link nav-link-custom" href="index.html">Inicio</a></strong></li>
+                    <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="comoFunciona.html">Cómo Funciona</a></strong></li>
+                    <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="explorar.html">Explorar</a></strong></li>
+                    <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="servicios.html">Servicios Premium</a></strong></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a  id="auth-btn"class="btn-register nav-link px-3 py-2" href="login.html">Registrarse</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Main Content -->
+    <main class="container-fluid container-xxl px-4 py-5">
+        
+        <!-- Hero Section -->
+        <section class="hero-section position-relative rounded-3 overflow-hidden shadow-lg mb-5 p-4 p-md-5">
+            <div class="position-relative z-1 d-flex flex-column flex-md-row align-items-center justify-content-between text-center text-md-start">
+                <div class="col-12 mb-4 mb-md-0">
+                    <h1 class="display-5 fw-bold text-gold mb-3">
+                        Descubre el Mundo del <br>Trueque con Confianza
+                    </h1>
+                    <p class="lead text-off-white mb-4">
+                        Trueque, Descubre, Cambia, Intercambia...
+                    </p>
+                    <div class="input-group w-100">
+                        
+                        <input type="text" class="form-control input-search" 
+                                placeholder="Buscar el palabra clave, estilo, o seguro..." 
+                                aria-label="Buscar">
+                        <button class="btn btn-primary-custom">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <!-- Sidebar / Filtros -->
+            <aside class="col-lg-3 mb-4 mb-lg-0">
+                <div class="sidebar-panel p-4 shadow-lg">
+                    <h2 class="fs-5 fw-bold mb-3">Categoría</h2>
+                    <nav class="nav flex-column mb-4">
+                        <!-- Antigüedades -->
+                        <div class="d-flex justify-content-between align-items-center py-2 px-3 category-item mb-2" 
+                            data-bs-toggle="collapse" data-bs-target="#antiguedades" style="cursor: pointer;">
+                            <span>Antigüedades</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div id="antiguedades" class="collapse ms-4">
+                            <div class="py-1">Reliquias históricas</div>
+                            <div class="py-1">Joyería antigua</div>
+                            <div class="py-1"></div>
+                        </div>
+
+                        <!-- Arte y Coleccionables -->
+                        <div class="d-flex justify-content-between align-items-center py-2 px-3 category-item mb-2" 
+                            data-bs-toggle="collapse" data-bs-target="#arte" style="cursor: pointer;">
+                            <span>Arte y Coleccionables</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div id="arte" class="collapse ms-4">
+                            <div class="py-1">Cómics y figuras de acción</div>
+                            <div class="py-1">Arte</div>
+                            <div class="py-1">Autógrafos</div>
+                            <div class="py-1"></div>
+                        </div>
+
+                        <!-- Vintage -->
+                        <div class="d-flex justify-content-between align-items-center py-2 px-3 category-item mb-2" 
+                            data-bs-toggle="collapse" data-bs-target="#vintage" style="cursor: pointer;">
+                            <span>Vintage</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div id="vintage" class="collapse ms-4">
+                            <div class="py-1">Joyería valiosa</div>
+                            <div class="py-1">Ropa</div>
+                        </div>
+                    </nav>
+
+
+                    <hr class="divider my-4">
+
+                    <div class="mb-4">
+                        <h3 class="fs-6 fw-bold mb-3">Filtros de Búsqueda</h3>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="valorCertificado">
+                            <label class="form-check-label" for="valorCertificado">Valor Certificado</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="selloCertificado">
+                            <label class="form-check-label" for="selloCertificado">Sello Certificado por IA</label>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <section class="col-lg-9">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    <!-- Product Card 1 -->
+                    <div class="col">
+                        <div class="card-item p-3">
+                            <img src="https://media.istockphoto.com/id/98426314/es/foto/maya-escultura-de-arcilla.jpg?s=612x612&w=0&k=20&c=QBdpEhy54eAToOxRXD_w0aJScxtcMv5XvpfrHe2z_hk=" class="card-img-top rounded-3 mb-3" alt="Estatua Antigua" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-0">
+                                <h4 class="card-title fs-5 fw-semibold mb-1 text-gold">Estatua - cultura valdivia</h4>
+                                <p></p>
+                                <p class="card-text text-sm text-off-white mb-2">Estatua - cultura valdivia</p>
+                                <p class="card-text text-xs text-gold">
+                                    <div class="d-grid">
+                                        <a href="producto.html" class="btn btn-gold custom-btn">ver </a>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="col">
+                        <div class="card-item p-3">
+                            <img src="https://i.etsystatic.com/38744536/r/il/f67993/6446213794/il_570xN.6446213794_1na0.jpg" class="card-img-top rounded-3 mb-3" alt="Jinete Medieval" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-0">
+                                <h4 class="card-title fs-5 fw-semibold mb-1 text-gold">Foto Michael Jackson autografiada</h4>
+                                <p></p>
+                                <p class="card-text text-sm text-off-white mb-2">Foto Michael Jackson autografiada</p>
+                                <p class="card-text text-xs text-gold">
+                                    <div class="d-grid">
+                                        <a href="producto.html" class="btn btn-gold custom-btn">ver </a>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="col">
+                        <div class="card-item p-3">
+                            <img src="https://i.pinimg.com/736x/88/3f/e4/883fe405ba9a0ee3cae5c93aeb6a4e2f.jpg" class="card-img-top rounded-3 mb-3" alt="Casco Gótico" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-0">
+                                <h4 class="card-title fs-5 fw-semibold mb-1 text-gold">Comic spiderman edicion limitada</h4>
+                                <p></p>
+                                <p class="card-text text-sm text-off-white mb-2">Comic spiderman edicion limitada</p>
+                                <p class="card-text text-xs text-gold">
+                                    <div class="d-grid">
+                                        <a href="producto.html" class="btn btn-gold custom-btn">ver </a>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="col">
+                        <div class="card-item p-3">
+                            <img src="https://www.popsike.pics/pix/20180620/113082786372.jpg" class="card-img-top rounded-3 mb-3" alt="Gabinete" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-0">
+                                <h4 class="card-title fs-5 fw-semibold mb-1 text-gold">Disco perdido de Julio Jaramillo</h4>
+                                <p></p>
+                                <p class="card-text text-sm text-off-white mb-2">Disco perdido de Julio Jaramillo</p>
+                                <p class="card-text text-xs text-gold">
+                                    <div class="d-grid">
+                                        <a href="producto.html" class="btn btn-gold custom-btn">ver </a>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 5 -->
+                    <div class="col">
+                        <div class="card-item p-3">
+                            <img src="https://previews.123rf.com/images/omarhalawi/omarhalawi2210/omarhalawi221000876/192690887-pocket-watches-vintage-gold-old-watch-in-the-sand-in-daylight.jpg" class="card-img-top rounded-3 mb-3" alt="Reloj de bolsillo" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-0">
+                                <h4 class="card-title fs-5 fw-semibold mb-1 text-gold">Reloj de bolsillo - 1895</h4>
+                                <p></p>
+                                <p class="card-text text-sm text-off-white mb-2">Reloj de bolsillo - 1895</p>
+                                <p class="card-text text-xs text-gold">
+                                    <div class="d-grid">
+                                        <a href="producto.html" class="btn btn-gold custom-btn">ver </a>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 6 -->
+                    <div class="col">
+                        <div class="card-item p-3">
+                            <img src="https://i.pinimg.com/736x/11/8a/51/118a516130b9b8311096f206cccb674f.jpg" class="card-img-top rounded-3 mb-3" alt="Cámara Antigua" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-0">
+                                <h4 class="card-title fs-5 fw-semibold mb-1 text-gold">Mash Thong Iksongssg</h4>
+                                <p></p>
+                                <p class="card-text text-sm text-off-white mb-2">Brazalete de tutankamon</p>
+                                <p class="card-text text-xs text-gold">
+                                    <div class="d-grid">
+                                        <a href="producto.html" class="btn btn-gold custom-btn">ver </a>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 7 -->
+                    <div class="col">
+                        <div class="card-item p-3">
+                            <img src="https://i.ebayimg.com/thumbs/images/g/EP4AAeSwrcxoYfUH/s-l1200.jpg" class="card-img-top rounded-3 mb-3" alt="Cámara Moderna" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-0">
+                                <h4 class="card-title fs-5 fw-semibold mb-1 text-gold">Estatua de coleccion - Mujer maravilla</h4>
+                                <p></p>
+                                <p class="card-text text-sm text-off-white mb-2">Estatua de coleccion - Mujer maravilla</p>
+                                <p class="card-text text-xs text-gold">
+                                    <div class="d-grid">
+                                        <a href="producto.html" class="btn btn-gold custom-btn">ver </a>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 8 -->
+                    <div class="col">
+                        <div class="card-item p-3">
+                            <img src="https://i.pinimg.com/736x/cc/10/80/cc10809af0a5fc7eccc3f6a5e9c0b4ab.jpg" class="card-img-top rounded-3 mb-3" alt="Collar" style="height: 160px; object-fit: cover;">
+                            <div class="card-body p-0">
+                                <h4 class="card-title fs-5 fw-semibold mb-1 text-gold">Pendientes antiguos de ambar y plata</h4>
+                                <p></p>
+                                <p class="card-text text-sm text-off-white mb-2">Colección de reliquias IA</p>
+                                <p class="card-text text-xs text-gold">
+                                    <div class="d-grid">
+                                        <a href="producto.html" class="btn btn-gold custom-btn">ver </a>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+            <!-- Logo -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <a href="#">
+                <img src="img/LogoNexo-Photoroom.png" alt="NEXO Logo" class="footer-logo">
+                </a>
+            </div>
+
+            <!-- Empresa -->
+            <div class="col-md-2 mb-4 mb-md-0">
+                <h6 class="footer-title">Empresa</h6>
+                <ul class="list-unstyled">
+                <li><a href="#" class="footer-link">Sobre Nosotros</a></li>
+                <li><a href="#" class="footer-link">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="col-md-2 mb-4 mb-md-0">
+                <h6 class="footer-title">Legal</h6>
+                <ul class="list-unstyled">
+                <li><a href="#" class="footer-link">Términos</a></li>
+                <li><a href="#" class="footer-link">Privacidad</a></li>
+                <li><a href="#" class="footer-link">Cookies</a></li>
+                </ul>
+            </div>
+
+            <!-- Comunidad -->
+            <div class="col-md-2 mb-4 mb-md-0">
+                <h6 class="footer-title">Comunidad</h6>
+                <ul class="list-unstyled">
+                <li><a href="#" class="footer-link">Blog</a></li>
+                <li><a href="#" class="footer-link">Eventos</a></li>
+                <li><a href="#" class="footer-link">Foro</a></li>
+                </ul>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="col-md-3 text-md-end">
+                <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            </div>
+
+            <!-- Línea © centrada -->
+            <div class="row mt-4">
+            <div class="col text-center">
+                <p class="footer-copy mb-0">© 2025 Nexo - Autor: Marcos Romero<br>Todos los derechos reservados</p>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Incluye Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

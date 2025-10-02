@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexo - Detalle del Artículo</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="">
+</head>
+
+<style>
+
+    :root {
+            --dark-brown: #2e261f;
+            --gold: #d4af37;
+            --light-gold: #f5e4c0;
+            --off-white: #e0e0e0;
+            --hero-overlay: 0.42;
+        }
+
+
+        /*-----------------------------------------------Configuraciones de mi proyecto--------------------------------------------------*/
+        .text-gold {
+            color: #FFD700 !important; /* cambia #FFD700 por el amarillo de tu línea gráfica */
+        }
+
+        body {
+            background-color: var(--dark-brown);
+            color: var(--off-white);
+            font-family: 'Inter', sans-serif;
+            padding-top: 85px; /* ajusta al alto real de tu navbar */
+            
+        }
+    /*-----------------------------------------------NAV--------------------------------------------------*/
+
+        .navbar {
+            background-color: var(--dark-brown) !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid var(--gold);
+            height: 80px; /* altura fija de la navbar */
+            overflow: hidden; /* evita que algo se salga */
+        }
+
+        /* 🔧 En pantallas pequeñas la navbar debe crecer */
+        @media (max-width: 992px) {
+            .navbar {
+                height: auto;       /* deja que se expanda */
+                overflow: visible;  /* el acordeón ya no se recorta */
+                padding: 0.5rem 1rem; /* agrega aire */
+            }
+
+            .navbar-brand img {
+                max-height: 60px; /* el logo se ajusta */
+                height: auto;
+                width: auto;
+            }
+        }
+
+        .nav-link-custom {
+            font-size: 18px; /* cambia el tamaño a tu gusto */
+            font-weight: bold; /* opcional */
+        }
+
+
+        .navbar-brand, .nav-link, .navbar-toggler-icon {
+            color: var(--gold) !important;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .navbar-brand img {
+            height: 160px;
+            max-height: 100%; /* nunca será más alto que la navbar */
+            width: auto;     /* mantiene proporción */
+            
+        }
+
+        /* Ajuste en pantallas medianas */
+        @media (max-width: 992px) {
+            .navbar-brand img {
+                height: 120px;
+            }
+        }
+
+        /* Ajuste en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                height: 80px;
+            }
+        }
+        
+
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--light-gold) !important;
+        }
+
+        .navbar-nav .nav-item:not(:last-child) {
+            margin-right: 1.6rem;
+        }
+
+        /* 🔧 En móviles los items se apilan y deben centrarse */
+        @media (max-width: 991px) {
+            .navbar-nav {
+                text-align: center; /* centra los textos */
+            }
+
+            .navbar-nav .nav-item {
+                margin-right: 0 !important; /* elimina el margen horizontal */
+                margin-bottom: 0.8rem;      /* añade un poco de espacio vertical */
+            }
+
+            .navbar-nav .nav-item:last-child {
+                margin-bottom: 0; /* quita el extra al final */
+            }
+        }
+
+        
+        .btn-register {
+            background: linear-gradient(90deg, #d4af37, #ffd700);; /* degradado */
+            color: #000 !important;
+            border-radius: 6px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none; /* ya no hace falta el borde */
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        }
+
+
+        /*-----------------------------------------------BODY--------------------------------------------------*/
+
+        /* Tarjetas de Información con borde dorado */
+.col-lg-6 .border {
+  border: 1px solid rgba(212,175,55,0.6); /* Dorado semi-transparente */
+  color: #fff;                            /* Texto blanco */
+  box-shadow: 0 2px 8px rgba(212,175,55,0.25);
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover (igual que testimonios) */
+.col-lg-6 .border:hover {
+  border-color: #d4af37; /* Dorado más fuerte */
+  box-shadow: 0 4px 15px rgba(212,175,55,0.45);
+}
+
+/* Títulos dorados */
+.col-lg-6 h6,
+.col-lg-6  {
+  color: #d4af37 !important; /* Dorado */
+}
+
+/* Textos secundarios */
+.col-lg-6 .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important; /* Gris claro */
+}
+
+.fas, .m{
+    color: var(--gold);
+}
+
+/* Caja Historial con marco dorado */
+.golden-box {
+  border: 1px solid rgba(212,175,55,0.6); /* dorado suave */
+  box-shadow: 0 2px 8px rgba(212,175,55,0.25);
+  transition: all 0.3s ease;
+}
+
+.golden-box:hover {
+  border-color: #d4af37; /* dorado más fuerte */
+  box-shadow: 0 4px 15px rgba(212,175,55,0.45);
+}
+
+
+
+        /*-----------------------------------------------FOOTER--------------------------------------------------*/
+.footer {
+  background-color: #2a2220;
+  color: #ccc;
+  font-size: 0.9rem; /* tamaño base de texto */
+}
+
+/* Tamaño del logo independiente */
+.footer-logo {
+  width: 160px;  /* puedes aumentar o reducir libremente */
+  height: auto;  /* mantiene proporción */
+  display: block; /* evita espacio raro debajo de la imagen */
+}
+
+/* Títulos del footer */
+.footer-title {
+  font-size: 1.4rem; /* ajusta a gusto */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #d4af37; /* dorado */
+}
+
+/* Enlaces */
+.footer-link {
+  font-size: 0.95rem; /* ajusta a gusto */
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #d4af37;
+}
+
+/* Íconos sociales */
+.social-icons a {
+  display: inline-block;
+  margin: 0 8px;
+  color: #d4af37;
+  font-size: 1.9rem; /* ajusta el tamaño de los íconos */
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+/* Copyright */
+.footer-copy {
+  font-size: 0.85rem; /* ajusta a gusto */
+  color: #d4af37; /* dorado */
+}
+
+</style>
+<body>
+
+  <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+        <div class="container-fluid px-5">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+            <img src="img/LogoNexo-Photoroom.png" alt="NEXO Logo">
+            </a>
+
+            <!-- Botón responsive -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"> <strong><a class="nav-link nav-link-custom" href="index.html">Inicio</a></strong></li>
+                <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="comoFunciona.html">Cómo Funciona</a></strong></li>
+                <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="explorar.html">Explorar</a></strong></li>
+                <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="servicios.html">Servicios Premium</a></strong></li>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                <a  id="auth-btn"class="btn-register nav-link px-3 py-2" href="login.html">Registrarse</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Main -->
+  <main class="container py-5 mt-5">
+    <h1 class="fw-bold mb-2 text-gold">Estatua - cultura valdivia</h1>
+    <p class="text-white">Antiguedad</p>
+
+    <div class="row mt-4">
+      <!-- Galería -->
+      <div class="col-lg-6 mb-4">
+        <div class="border rounded p-3 text-center">
+          <img id="mainImage" src="https://media.istockphoto.com/id/98426314/es/foto/maya-escultura-de-arcilla.jpg?s=612x612&w=0&k=20&c=QBdpEhy54eAToOxRXD_w0aJScxtcMv5XvpfrHe2z_hk=" class="img-fluid rounded mb-3" alt="">
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <img src="https://placehold.co/100x75/e0ac2b/0d0d0d?text=Mini+1" class="img-thumbnail" onclick="changeImage(this.src, this)">
+            <img src="https://placehold.co/100x75/e0ac2b/0d0d0d?text=Mini+2" class="img-thumbnail" onclick="changeImage(this.src, this)">
+            <img src="https://placehold.co/100x75/e0ac2b/0d0d0d?text=Mini+3" class="img-thumbnail" onclick="changeImage(this.src, this)">
+            <img src="https://placehold.co/100x75/e0ac2b/0d0d0d?text=Mini+4" class="img-thumbnail" onclick="changeImage(this.src, this)">
+          </div>
+        </div>
+      </div>
+
+      <!-- Información -->
+      <div class="col-lg-6">
+        <div class="border rounded p-3 mb-3">
+          <h6 class="text-warning mb-2"><i class="fas fa-shield-alt me-2"></i>Valor Certificado con Nex-IA</h6>
+          <p class="text-white">Valor estimado USD 1,200 - 1,500</p>
+          <p>Nivel: Sobresaliente (95% Autenticidad)</p>
+        </div>
+
+        <div class="border rounded p-3 mb-3">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" class="rounded-circle me-3" 
+            style="width:60px; height:60px; object-fit:cover;" alt="Perfil">
+            <div>
+              <p class="fw-bold mb-0 text-gold">Andrea Sanchez</p>
+              <p class="text-white-50 small mb-1">Coleccionista experta</p>
+              <span class="text-warning small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+            </div>
+            <div class="ms-auto text-end">
+              <p class="mb-0 m">Materiales</p>
+              <p class="text-white small mb-0">Oro y Acero</p>
+            </div>
+          </div>
+          <p class="text-white"><strong class="fw-bold">Descripción: </strong> Linda estatua de barro de la cultura valdivia</p>
+          <p class="text-warning small mb-0">Género: Masculino</p>
+        </div>
+
+        <div class="mb-3">
+          <button id="propose-trade-btn" class="btn btn-warning btn-lg w-100">¡Proponer Trueque!</button>
+        </div>
+
+        <div class="border rounded p-3">
+          <h6 class="text-warning">Préstamo Previo Opcional</h6>
+          <p class="text-white small">(3 días)</p>
+          <a href="#" class="text-warning">Ver Contrato Digital</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Historial -->
+    <h3 class="fw-bold mt-5 mb-3 text-white">Historial Digital del Objeto</h3>
+    <div class="border rounded p-4 text-center golden-box">
+        <div class="row text-white">
+            <div class="col"><i class="fas fa-calendar-alt fa-2x"></i><p class="small mt-2">1821: Fabricación Inicial</p></div>
+            <div class="col"><i class="fas fa-user fa-2x"></i><p class="small mt-2">1826: Primer Dueño</p></div>
+            <div class="col"><i class="fas fa-camera fa-2x"></i><p class="small mt-2">1835: Primera Transacción</p></div>
+            <div class="col"><i class="fas fa-certificate fa-2x"></i><p class="small mt-2">Actual: En posesión de A. Sanchez</p></div>
+        </div>
+    </div>
+
+  </main>
+
+  <!-- Pie de página -->
+        <footer class="footer py-5">
+            <div class="container">
+                <div class="row">
+                <!-- Logo -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <a href="#">
+                    <img src="img/LogoNexo-Photoroom.png" alt="NEXO Logo" class="footer-logo">
+                    </a>
+                </div>
+
+                <!-- Empresa -->
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h6 class="footer-title">Empresa</h6>
+                    <ul class="list-unstyled">
+                    <li><a href="#" class="footer-link">Sobre Nosotros</a></li>
+                    <li><a href="#" class="footer-link">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h6 class="footer-title">Legal</h6>
+                    <ul class="list-unstyled">
+                    <li><a href="#" class="footer-link">Términos</a></li>
+                    <li><a href="#" class="footer-link">Privacidad</a></li>
+                    <li><a href="#" class="footer-link">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Comunidad -->
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h6 class="footer-title">Comunidad</h6>
+                    <ul class="list-unstyled">
+                    <li><a href="#" class="footer-link">Blog</a></li>
+                    <li><a href="#" class="footer-link">Eventos</a></li>
+                    <li><a href="#" class="footer-link">Foro</a></li>
+                    </ul>
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="col-md-3 text-md-end">
+                    <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Línea © centrada -->
+                <div class="row mt-4">
+                <div class="col text-center">
+                    <p class="footer-copy mb-0">© 2025 Nexo - Autor: Marcos Romero<br>Todos los derechos reservados</p>
+                </div>
+                </div>
+            </div>
+        </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="tradeModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title">Proponer Trueque</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="tradeForm">
+            <div class="mb-3">
+              <label for="item" class="form-label">Tu Artículo para Intercambio</label>
+              <input type="text" id="item" name="item" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="details" class="form-label">Detalles de la Propuesta</label>
+              <textarea id="details" name="details" rows="4" class="form-control"></textarea>
+            </div>
+            <div class="text-end">
+              <button type="submit" class="btn btn-warning">Enviar Propuesta</button>
+            </div>
+          </form>
+          <div id="message-box" class="mt-3 alert d-none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Gallery
+    function changeImage(newSrc, element) {
+      document.getElementById('mainImage').src = newSrc;
+    }
+
+    // Modal Form
+    const form = document.getElementById("tradeForm");
+    const messageBox = document.getElementById("message-box");
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      messageBox.textContent = "¡Tu propuesta ha sido enviada con éxito!";
+      messageBox.classList.remove("d-none","alert-danger");
+      messageBox.classList.add("alert","alert-success");
+      form.reset();
+      setTimeout(() => {
+        const modalEl = document.getElementById('tradeModal');
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        modal.hide();
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

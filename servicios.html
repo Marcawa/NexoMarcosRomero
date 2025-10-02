@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexo - Recreación</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluye los iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --dark-brown: #2e261f;
+            --light-brown: #3b322a;
+            --gold: #d4af37;
+            --light-gold: #f5e4c0;
+            --off-white: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-brown);
+            color: var(--off-white);
+        }
+
+        .navbar {
+            background-color: var(--dark-brown) !important;
+            border-bottom: 1px solid var(--gold);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            color: var(--gold) !important;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: var(--gold) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--light-gold) !important;
+        }
+        
+        .btn-register {
+            background-color: transparent !important;
+            border: 2px solid var(--gold);
+            color: var(--gold) !important;
+            font-weight: 600;
+            border-radius: 999px;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: var(--gold) !important;
+            color: var(--dark-brown) !important;
+        }
+
+        .header-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x800/2e261f/d4af37?text=Fondo+Principal') !important;
+            background-position: center;
+            background-size: cover;
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .header-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--off-white) !important;
+        }
+
+        .icon-card {
+            background-color: var(--light-brown);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            height: 100%;
+        }
+
+        .icon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon-card .icon-placeholder {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .category-sidebar {
+            background-color: var(--light-brown);
+            border: 1px solid var(--light-gold);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-section {
+            background-color: var(--light-brown);
+            border-top: 1px solid var(--gold);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .footer {
+            background-color: var(--dark-brown);
+            border-top: 1px solid var(--gold);
+        }
+
+        .footer .social-icons .fa-brands, .footer .social-icons .fa-solid {
+            font-size: 1.5rem;
+            color: var(--gold);
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons .fa-brands:hover, .footer .social-icons .fa-solid:hover {
+            color: var(--light-gold);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="#">NEXO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"> <strong><a class="nav-link nav-link-custom" href="index.html">Inicio</a></strong></li>
+                    <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="comoFunciona.html">Cómo Funciona</a></strong></li>
+                    <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="explorar.html">Explorar</a></strong></li>
+                    <li class="nav-item"><strong><a class="nav-link nav-link-custom" href="servicios.html">Servicios Premium</a></strong></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a  id="auth-btn"class="btn-register nav-link px-3 py-2" href="login.html">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header-section">
+        <div class="container text-center text-white">
+            <h1 class="header-title">Servicios Premium Exclusivos</h1>
+            <p class="header-subtitle mt-3">Prueba, Intercambia y Valora.<br>Tu comunikencia con Fulite con hioLoads Avenolizas</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 mb-4 mb-lg-0">
+                <div class="category-sidebar">
+                    <h5 class="text-white">Categoría</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50"><i class="fas fa-layer-group me-2"></i>Avenolizasion</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50"><i class="fas fa-chart-line me-2"></i>Estado</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50"><i class="fas fa-user-circle me-2"></i>Solo Comificado pasa por el</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white-50"><i class="fas fa-briefcase me-2"></i>Restantes Nexo Epicamoral</a></li>
+                    </ul>
+                    <button class="btn btn-outline-light rounded-pill w-100 mt-3">Mas Info</button>
+                </div>
+            </div>
+
+            <!-- Content Cards -->
+            <div class="col-lg-9">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-card">
+                            <i class="fas fa-shield-alt icon-placeholder"></i>
+                            <h6 class="mt-3">Seguro Opcional para pero Premiums</h6>
+                            <p class="text-muted small">Prologo sar eligible nider viden docents regalo</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-card">
+                            <i class="fas fa-file-contract icon-placeholder"></i>
+                            <h6 class="mt-3">Contrato Digital y Legal Automodolizis IA</h6>
+                            <p class="text-muted small">Gemigos nosli oligios dudo volor reclamiros</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-card">
+                            <i class="fas fa-file-invoice icon-placeholder"></i>
+                            <h6 class="mt-3">Contrato Digital y Legal gemigos nosli</h6>
+                            <p class="text-muted small">Gemigos nosli oligios dudo volor reclamiros</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-card">
+                            <i class="fas fa-history icon-placeholder"></i>
+                            <h6 class="mt-3">Historiald e Historial Consulticencos IA</h6>
+                            <p class="text-muted small">Correr cion avoñdo y modestos y rodicencos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4 class="mt-5 text-gold">Desuliland Digital Automatizados</h4>
+                
+                <div class="row g-4 mt-3">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-card">
+                            <i class="fas fa-gamepad icon-placeholder"></i>
+                            <h6 class="mt-3">Gamificacion & Thesque Impulizodo Pro</h6>
+                            <p class="text-muted small">Cormenos vinde drodidor yor loxes madale e antamemos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-card">
+                            <i class="fas fa-robot icon-placeholder"></i>
+                            <h6 class="mt-3">Evensas Witem Romking Turing y Viobilidad Pro</h6>
+                            <p class="text-muted small">Corna naviatros pormenat aloce y comolocioge</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-card">
+                            <i class="fas fa-trophy icon-placeholder"></i>
+                            <h6 class="mt-3">Eventes - Ranking y (Hiobilidad Pro)</h6>
+                            <p class="text-muted small">Frodes frosite entraciedachy yor y cioneleage</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="icon-card">
+                            <i class="fas fa-camera icon-placeholder"></i>
+                            <h6 class="mt-3">Anserdes y Tasesquim fionociziones Vatecciones</h6>
+                            <p class="text-muted small">Servicios prosiacenata ado you jua onablics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer py-4 mt-5">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-3 mb-md-0">
+                <span class="text-gold fw-bold me-2">NEXO</span>
+                <span class="text-muted">&copy; 2024</span>
+            </div>
+            <div class="d-flex flex-column flex-md-row align-items-center">
+                <div class="d-flex mb-2 mb-md-0">
+                    <a href="#" class="text-muted text-decoration-none mx-2">Legal</a>
+                    <a href="#" class="text-muted text-decoration-none mx-2">Privacidad</a>
+                    <a href="#" class="text-muted text-decoration-none mx-2">Contacto</a>
+                </div>
+                <div class="social-icons ms-md-4 mt-2 mt-md-0">
+                    <a href="#" class="mx-2"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="mx-2"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="mx-2"><i class="fa-solid fa-message"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Incluye Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

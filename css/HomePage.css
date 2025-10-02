@@ -1,0 +1,611 @@
+:root {
+            --dark-brown: #2e261f;
+            --gold: #d4af37;
+            --light-gold: #f5e4c0;
+            --off-white: #e0e0e0;
+            --hero-overlay: 0.42;
+        }
+
+
+        /*-----------------------------------------------Configuraciones de mi proyecto--------------------------------------------------*/
+        .text-gold {
+            color: #FFD700 !important; /* cambia #FFD700 por el amarillo de tu línea gráfica */
+        }
+
+        /* Base avatar */
+        .avatar {
+        border-radius: 50%;   /* redondo */
+        object-fit: cover;    /* mantiene proporción */
+        display: inline-block;
+        }
+
+        /* Tamaños escalables */
+        .avatar-40 { width: 40px; height: 40px; }
+        .avatar-60 { width: 60px; height: 60px; }
+        .avatar-80 { width: 80px; height: 80px; }
+        .avatar-100 { width: 100px; height: 100px; }
+
+
+
+
+        body {
+            background-color: var(--dark-brown);
+            color: var(--off-white);
+            font-family: 'Inter', sans-serif;
+            padding-top: 85px; /* ajusta al alto real de tu navbar */
+            
+        }
+
+        /*-----------------------------------------------NAV--------------------------------------------------*/
+
+        .navbar {
+            background-color: var(--dark-brown) !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid var(--gold);
+            height: 80px; /* altura fija de la navbar */
+            overflow: hidden; /* evita que algo se salga */
+        }
+
+        /* 🔧 En pantallas pequeñas la navbar debe crecer */
+        @media (max-width: 992px) {
+            .navbar {
+                height: auto;       /* deja que se expanda */
+                overflow: visible;  /* el acordeón ya no se recorta */
+                padding: 0.5rem 1rem; /* agrega aire */
+            }
+
+            .navbar-brand img {
+                max-height: 60px; /* el logo se ajusta */
+                height: auto;
+                width: auto;
+            }
+        }
+
+        .nav-link-custom {
+            font-size: 18px; /* cambia el tamaño a tu gusto */
+            font-weight: bold; /* opcional */
+        }
+
+
+        .navbar-brand, .nav-link, .navbar-toggler-icon {
+            color: var(--gold) !important;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .navbar-brand img {
+            height: 160px;
+            max-height: 100%; /* nunca será más alto que la navbar */
+            width: auto;     /* mantiene proporción */
+            
+        }
+
+        /* Ajuste en pantallas medianas */
+        @media (max-width: 992px) {
+            .navbar-brand img {
+                height: 120px;
+            }
+        }
+
+        /* Ajuste en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                height: 80px;
+            }
+        }
+        
+
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--light-gold) !important;
+        }
+
+        .navbar-nav .nav-item:not(:last-child) {
+            margin-right: 1.6rem;
+        }
+
+        /* 🔧 En móviles los items se apilan y deben centrarse */
+        @media (max-width: 991px) {
+            .navbar-nav {
+                text-align: center; /* centra los textos */
+            }
+
+            .navbar-nav .nav-item {
+                margin-right: 0 !important; /* elimina el margen horizontal */
+                margin-bottom: 0.8rem;      /* añade un poco de espacio vertical */
+            }
+
+            .navbar-nav .nav-item:last-child {
+                margin-bottom: 0; /* quita el extra al final */
+            }
+        }
+
+        
+        .btn-register {
+            background: linear-gradient(90deg, #d4af37, #ffd700);; /* degradado */
+            color: #000 !important;
+            border-radius: 6px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none; /* ya no hace falta el borde */
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        }
+
+        /*-----------------------------------------------EXPLICACION--------------------------------------------------*/
+
+
+        
+
+
+        .hero-section {
+            position: relative;
+            background: url('../img/FondoHome.png') no-repeat center center / cover;
+            padding: 8rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Capa overlay separada: controla solo la oscuridad / color */
+        .hero-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;                                /* top:0; right:0; bottom:0; left:0; */
+        background-color: rgba(0, 0, 0, var(--hero-overlay));
+        pointer-events: none;                    /* el overlay no bloquea clics */
+        z-index: 1;                              /* bajo el contenido, sobre la imagen */
+        transition: background-color .18s ease;  /* para cambios suaves en DevTools */
+        }
+
+        /* Asegura que el contenido (texto/botones) quede por encima del overlay */
+        .hero-section > .container {
+        position: relative;
+        z-index: 2;
+        }
+
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+/* Card Feature Base */
+.card-feature {
+    background-color: #3b322a;
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    height: 100%;
+    overflow: hidden; /* evita que se desborde el contenido */
+    cursor: pointer;  /* muestra que se puede interactuar */
+    max-height: 200px; /* altura inicial cerrada */
+    transition: 
+        transform 0.3s ease, 
+        box-shadow 0.3s ease, 
+        max-height 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Iconos dentro de la card */
+.card-feature .fa-solid, 
+.card-feature .fa-regular {
+    color: var(--gold);
+    font-size: 3rem; /* tamaño fijo y grande */
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+/* Hover general */
+.card-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+}
+
+/* Hover: cambia color de ícono */
+.card-feature:hover .fa-solid {
+    color: var(--light-gold);
+}
+
+/* Contenido oculto por defecto */
+.card-feature .card-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.4s ease;
+    padding: 0 1rem;
+    margin-top: 0;
+}
+
+/* Expansión manual con clase .expanded */
+.card-feature.expanded {
+    max-height: 400px; /* altura abierta */
+    box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+}
+
+.card-feature.expanded .card-content {
+    opacity: 1;
+    max-height: 200px; /* ajusta según tu contenido */
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.card-feature.expanded .fa-solid {
+    color: var(--light-gold);
+}
+
+
+
+        
+        
+        /* ---------- Card Discover: imagen izquierda + caja dorada derecha ---------- */
+.card-discover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--light-gold);  /* 🔥 vuelve el marco dorado */
+  border-radius: 12px;
+  height: 120px;
+  padding: 0;
+  background-color: #3b322a;
+  color: var(--gold);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 🔥 brillo/sombra elegante */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover con brillo */
+.card-discover:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* Imagen ocupando la mitad izquierda */
+.card-discover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;              /* detrás del texto y del recuadro amarillo */
+  border-radius: 12px 0 0 12px;
+  opacity: 0.9; /* 🔧 controla cuánto se nota */
+
+}
+
+/* Asigna las imágenes por variante (rutas como en tu proyecto) */
+.card-antiguedades::before { background-image: url('../img/antiguedades.png'); }
+.card-arte::before        { background-image: url('../img/Arte.png'); }
+.card-tecnologia::before  { background-image: url('../img/tecnologia.png'); }
+.card-vintage::before     { background-image: url('../img/nfs.png'); }
+
+/* Título (lado izquierdo, encima de la imagen) */
+.card-discover h6 {
+  position: relative;
+  z-index: 3;              /* encima de la imagen */
+  margin: 0;
+  padding-left: 1rem;
+  width: 50%;              /* ocupa la mitad izquierda */
+  text-align: left;
+  align-self: center;
+  font-size: 1rem;
+}
+
+/* Caja amarilla que ocupa la mitad derecha (verticalmente completa) */
+.card-discover p {
+  position: relative;
+  z-index: 2;              /* encima de la imagen, detrás del h6 si se superponen */
+  margin: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 200, 21, 0.4);
+  color: #000;
+  padding: 0 1rem;
+  border-radius: 0 12px 12px 0;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+}
+
+/* Hover ligero (opcional) */
+.card-discover:hover p {
+  filter: brightness(0.98);
+}
+
+/* --- Responsive: en pantallas pequeñas apilar imagen + texto --- */
+@media (max-width: 768px) {
+  .card-discover {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+  .card-discover::before {
+    width: 100%;
+    height: 120px;
+    border-radius: 12px 12px 0 0;
+  }
+  .card-discover h6, .card-discover p {
+    width: 100%;
+    height: auto;
+    padding: 0.8rem 1rem;
+    text-align: center;
+  }
+  .card-discover p {
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+
+ 
+
+
+        /*-----------------------------------------------COMO FUNCIONA--------------------------------------------------*/
+
+        .how-it-works .steps {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .how-it-works .steps li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        /* Número */
+        .how-it-works .step-number {
+            font-weight: bold;
+            color: var(--gold);
+            min-width: 20px;
+            text-align: right;
+            margin-right: 50px; /* espacio hasta el texto */
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Línea punteada */
+        .how-it-works .steps::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 45px; /* justo a la derecha de los números */
+            width: 2px;
+            height: 100%;
+            border-left: 2px dotted var(--gold);
+        }
+
+        /* Circulitos en cada paso */
+        .how-it-works .steps li::before {
+            content: "";
+            position: absolute;
+            left: 41px; /* centrado sobre la línea punteada */
+            width: 10px;
+            height: 10px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Texto */
+        .how-it-works .step-text {
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        /* Mantiene los números a la izquierda */
+.steps li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+/* Wrapper que agrupa texto + detalle en columna */
+.steps .step-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Detalle oculto por defecto */
+.steps .step-detail {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  font-size: 0.9rem;
+  color: #ccc;
+  transition: all 0.4s ease;
+  margin-top: 0.5rem; /* espacio debajo del step-text */
+}
+
+/* Mostrar debajo al pasar el mouse */
+.steps li:hover .step-detail {
+  max-height: 100px; /* suficiente espacio */
+  opacity: 1;
+}
+
+
+        /*-----------------------------------------------COMENTARIOS--------------------------------------------------*/
+        /* 
+        .testimonial-card {
+            background-color: #2a2220; 
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        Icono decorativo arriba a la derecha (si lo quieres igual que en la imagen) 
+        .testimonial-card::after {
+            content: "\f10d"; 
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: var(--gold);
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }*/
+
+   
+/* Carousel wrapper vertical */
+.testimonial-carousel {
+  display: flex;
+  flex-direction: column;   /* apilar en vertical */
+  gap: 1rem;
+  overflow-y: auto;         /* scroll vertical */
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem;
+  max-height: 400px;        /* altura visible (ajusta a tu diseño) */
+}
+
+/* Cada tarjeta debe "encajar" al hacer snap */
+.testimonial-carousel .testimonial-card {
+  min-height: 180px;        /* altura mínima de cada card */
+  max-height: 250px;        /* altura máxima (ajusta según necesidad) */
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  margin-bottom: 0;
+}
+
+/* Scrollbar vertical estilizado */
+.testimonial-carousel::-webkit-scrollbar { width: 10px; }
+.testimonial-carousel::-webkit-scrollbar-thumb {
+  background: rgba(212,175,55,0.35);
+  border-radius: 8px;
+}
+.testimonial-carousel::-webkit-scrollbar-track { background: transparent; }
+
+/* Ajustes responsivos */
+@media (min-width: 992px) {
+  .testimonial-carousel { gap: 1.25rem; max-height: 500px; }
+  .testimonial-carousel .testimonial-card { min-height: 220px; }
+}
+
+
+        .btn-opinion {
+            background-color: var(--gold);
+            color: var(--dark-brown);
+            font-weight: bold;
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-opinion:hover {
+            background-color: var(--light-gold);
+            color: #fff;
+        }
+
+        .border-gold {
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+        }
+
+        .star {
+        font-size: 2rem;
+        cursor: pointer;
+        color: #aaa; /* color apagado por defecto */
+        transition: color 0.2s;
+        }
+
+        .star.hover,
+        .star.selected {
+        color: gold; /* color al pasar el mouse o al seleccionar */
+        }
+
+
+
+        /*-----------------------------------------------FOOTER--------------------------------------------------*/
+.footer {
+  background-color: #2a2220;
+  color: #ccc;
+  font-size: 0.9rem; /* tamaño base de texto */
+}
+
+/* Tamaño del logo independiente */
+.footer-logo {
+  width: 160px;  /* puedes aumentar o reducir libremente */
+  height: auto;  /* mantiene proporción */
+  display: block; /* evita espacio raro debajo de la imagen */
+}
+
+/* Títulos del footer */
+.footer-title {
+  font-size: 1.4rem; /* ajusta a gusto */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #d4af37; /* dorado */
+}
+
+/* Enlaces */
+.footer-link {
+  font-size: 0.95rem; /* ajusta a gusto */
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #d4af37;
+}
+
+/* Íconos sociales */
+.social-icons a {
+  display: inline-block;
+  margin: 0 8px;
+  color: #d4af37;
+  font-size: 1.9rem; /* ajusta el tamaño de los íconos */
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+/* Copyright */
+.footer-copy {
+  font-size: 0.85rem; /* ajusta a gusto */
+  color: #d4af37; /* dorado */
+}
+
+
+
+        
+
+        /* En móvil, ajusta alturas para mejor UX */
+        @media (max-width: 768px) {
+            .card-feature {
+                max-height: 180px;
+            }
+            .card-feature.expanded {
+                max-height: 350px;
+            }
+        }
