@@ -15,7 +15,10 @@
             color: var(--off-white);
             padding-top: 85px; /* ajusta al alto real de tu navbar */
         }
-
+        
+        .text-gold {
+            color: #FFD700 !important; /* cambia #FFD700 por el amarillo de tu línea gráfica */
+        }
 
 /*-----------------------------------------------NAV--------------------------------------------------*/
 
